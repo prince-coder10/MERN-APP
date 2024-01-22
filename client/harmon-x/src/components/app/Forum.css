@@ -1,0 +1,92 @@
+.forum-header {
+  font-size: 42px;
+  text-align: center;
+  padding: 10px;
+}
+
+.chatroom h3 {
+  all: unset;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.chatrooms {
+  padding-top: 100px;
+}
+
+.chatroom {
+  padding: 15px;
+  width: 70%;
+  border: 2px solid #6d31edff;
+  border-radius: 40px;
+  background: #fff;
+}
+
+.chatroom .description {
+  padding: 5px;
+  background: #fff3f0ff;
+}
+
+.chatroom-btn {
+  padding: 10px 40px;
+  margin: 5px;
+  margin-top: 8px;
+  outline: none;
+  border: 0;
+  background: #6d31edff;
+  color: #fff;
+  border-radius: 4px;
+}
+
+.create-room {
+  background-color: #fff;
+  border-radius: 8px;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  padding: 20px;
+}
+
+.h3 {
+  all: unset;
+  font-size: 20px;
+  font-weight: 600;
+  margin-right: 10px;
+}
+
+.create-room-form {
+  all: unset;
+  width: 40%;
+  position: absolute;
+  left: 50%;
+  right: 50%;
+  transform: translate(-50%, -50%);
+  background: #6d31edff;
+  color: #fff;
+  padding: 15px;
+}
+
+.create-room-form input {
+  all: unset;
+  width: 20%;
+  display: block;
+  margin: 20px;
+  color: #000;
+  background-color: #fff;
+  border: 1px solid #fff;
+  width: 80%;
+  padding: 10px;
+  border-radius: 18px;
+}
+
+.create-room-form textarea {
+  width: 50%;
+  margin: 20px;
+}
+
+.room-button {
+  padding: 8px 50px;
+  background-color: #fff;
+  width: 40%;
+  color: #000;
+}
