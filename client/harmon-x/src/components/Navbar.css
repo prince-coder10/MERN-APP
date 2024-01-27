@@ -1,0 +1,184 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+}
+
+.Logo {
+  width: 55px;
+}
+
+.logo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo-container h1 {
+  font-size: 20px;
+  color: #171a1fff;
+}
+
+nav {
+  display: flex;
+}
+
+nav .nav-link {
+  text-decoration: none;
+  margin-left: 20px;
+  color: #565d6dff;
+  transition: border 0.1s;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+nav .nav-link:hover {
+  border-left: 2px solid #6d31edff;
+  border-right: 2px solid #6d31edff;
+  color: #6d31edff;
+}
+
+.authBtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav-btn {
+  outline: none;
+  border: none;
+  padding: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-left: 10px;
+  border-radius: 4px;
+  transition: background 0.5s;
+}
+
+.nav-btn .nav-link {
+  text-decoration: none;
+  color: #6d31edff;
+  padding: 10px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.nav-btn .nav-link:hover {
+  color: #fff;
+}
+
+.nav-btn:hover {
+  background: #6d31edff;
+}
+
+.menu {
+  display: none;
+}
+
+/* breakdown 670px */
+@media only screen and (max-width: 670px) {
+  .menu {
+    all: unset;
+    position: absolute;
+    display: block;
+    right: 20px;
+    top: 2em;
+  }
+  nav {
+    flex-direction: column;
+  }
+
+  nav .nav-link {
+    color: #fff;
+  }
+
+  .nav-link {
+    margin-top: 30px;
+    text-align: center;
+  }
+
+  .authBtn {
+    flex-direction: column;
+  }
+
+  .authBtn button {
+    margin-top: 20px;
+  }
+
+  .logo-container {
+    position: fixed;
+    left: 0;
+    top: 1em;
+  }
+
+  .nav-container {
+    z-index: 1000;
+    width: 40% !important;
+    position: absolute;
+    top: 4em;
+    right: 0;
+    display: block;
+    background: #171a1fff;
+    /* padding: 60px; */
+  }
+
+  .authBtn {
+    padding-bottom: 40px !important;
+  }
+
+  .open {
+    display: block;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .open button {
+    margin-top: 20px;
+  }
+
+  .open #authBtn2 {
+    margin-bottom: 40px;
+  }
+
+  .open-nav {
+    position: absolute;
+    background: #171a1fff;
+    width: 40%;
+    right: 0;
+    top: 4em;
+  }
+
+  .close {
+    display: none;
+  }
+
+  .close-nav {
+    background: transparent;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .nav-container {
+    width: 80% !important;
+  }
+}
+
+@media only screen and (max-width: 430px) {
+  .menu {
+    position: fixed;
+    right: 25px;
+  }
+
+  .nav-container {
+    position: fixed;
+    right: 25px;
+    width: 60% !important;
+  }
+}
