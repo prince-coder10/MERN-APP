@@ -1,0 +1,20 @@
+.app-container {
+  background: #fafafbff;
+  height: 100vh;
+  padding-left: 230px;
+}
+
+.dashboard-header {
+  padding: 20px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+}
+
+.dashboard-header input {
+  width: 30%;
+  outline: none;
+  border: 0;
+  padding: 10px;
+}

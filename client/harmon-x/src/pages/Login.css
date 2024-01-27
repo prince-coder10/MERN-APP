@@ -1,0 +1,254 @@
+.login-body {
+  z-index: 9999;
+  width: 100%;
+  max-width: 100%;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.login-container {
+  padding-top: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-icons {
+  padding-bottom: 180px;
+}
+
+.login-icons img {
+  display: block;
+}
+
+.fa-sun {
+  font-size: 40px;
+  color: #efb034ff;
+  margin-top: 40px;
+}
+
+.fa-envelope {
+  font-size: 60px;
+  color: #6d31edff;
+}
+
+.bulb {
+  font-size: 40px;
+  color: #ff7dbaff;
+}
+
+.coffee {
+  margin-left: 120px;
+  margin-bottom: 60px;
+}
+
+.welcome-text {
+  margin-left: 80px;
+  width: 25%;
+}
+
+.welcome-text h2 {
+  font-size: 44px;
+  font-weight: 400;
+}
+
+form {
+  margin-left: 50px;
+  margin-right: 80px;
+  border: 2px solid #6d31edff;
+  padding: 40px;
+  border-radius: 4px;
+}
+
+form input {
+  display: block;
+  padding: 10px 20px;
+  width: 100%;
+  margin-top: 20px;
+  border: 1px solid #565d6dff;
+}
+
+.custom-label {
+  position: absolute;
+  margin-top: 8px;
+  margin-left: 10px;
+  z-index: 10;
+  background: white;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+form h3 {
+  text-align: center;
+  padding-bottom: 20px;
+}
+
+.form-link-cont {
+  margin-top: 10px;
+}
+
+form button {
+  width: 100%;
+  border: 0;
+  border-radius: 5px;
+  padding: 10px 20px;
+  margin-top: 10px;
+  background: #6d31edff;
+  color: #fff;
+}
+
+.circle {
+  z-index: -1;
+  position: absolute;
+  left: -20%;
+  bottom: 0px;
+  width: 600px;
+  height: 600px;
+  background: #fafafbff;
+  border-radius: 50%;
+}
+
+/* responsive */
+
+@media only screen and (max-width: 880px) {
+  form {
+    width: 50%;
+  }
+
+  .welcome-text {
+    width: 25%;
+  }
+
+  .welcome-text h2 {
+    font-size: 25px;
+  }
+
+  .error-msg {
+    bottom: 0;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .welcome-text {
+    position: absolute;
+    top: 5em;
+  }
+
+  .fa-sun {
+    float: right;
+    margin-top: -50px;
+  }
+}
+
+@media only screen and (max-width: 670px) {
+  .login-container {
+    padding-top: 200px;
+  }
+
+  .login-icons {
+    display: none;
+  }
+
+  .fa-sun {
+    display: none;
+  }
+
+  .welcome-text {
+    width: 100%;
+  }
+
+  .fa-sun {
+    margin-left: 10em;
+    z-index: 20;
+    margin-top: 20px;
+  }
+
+  .form {
+    width: 80%;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .login-icons {
+    position: absolute;
+    left: 0;
+    bottom: -10em;
+  }
+
+  .error-msg {
+    top: unset !important;
+    bottom: 0 !important;
+  }
+}
+
+@media only screen and (max-width: 560px) {
+  .circle {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 540px) {
+  .bulb {
+    position: absolute;
+    right: 20px;
+    top: 3em;
+  }
+
+  form {
+    width: 80%;
+    margin: 0;
+  }
+
+  .login-container {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .login-icons {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 420px) {
+  form {
+    width: 90%;
+  }
+
+  .bulb {
+    top: 4em;
+    z-index: -1;
+  }
+
+  .welcome-text h2 {
+    font-size: 24px;
+  }
+
+  .welcome-text {
+    width: 80%;
+    margin: 0;
+  }
+}
+
+@media only screen and (max-width: 760px) {
+  .login-container {
+    padding-top: 200px;
+  }
+
+  .login-icons {
+    display: none;
+  }
+
+  .error-msg {
+    bottom: unset;
+    top: 150px;
+  }
+}
+
+.error-msg {
+  display: flex;
+  position: absolute;
+  margin: 20px;
+  padding: 2px 10px;
+  background-color: #fff3f0ff;
+  color: red;
+}

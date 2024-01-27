@@ -1,1 +1,213 @@
+// import React, { useEffect, useState, useRef } from "react";
+// import Navbar from "../Navbar";
+// import SideNav from "./SideNav";
+// import io from "socket.io-client";
+// import "./Forum.css";
 
+// function Forum() {
+//   // Use useRef to persist the socket instance
+//   const socketRef = useRef(null);
+
+//   const [data, setData] = useState({
+//     msg: "",
+//   });
+
+//   // Initialize messages as an object with an array property
+//   const [messagesObj, setMessagesObj] = useState({ messages: [] });
+//   const [activity, setActivity] = useState("");
+
+//   useEffect(() => {
+//     // Initialize the socket if it's not already
+//     if (!socketRef.current) {
+//       socketRef.current = io("ws://localhost:3500");
+
+//       // Add event listener for "message" when the component mounts
+//       socketRef.current.on("message", (message) => {
+//         // Update state to include the new message
+//         setMessagesObj((prevMessages) => ({
+//           messages: [
+//             ...prevMessages.messages,
+//             { text: message, sender: "Other User" },
+//           ],
+//         }));
+//       });
+
+//       // Add event listener for "activity" to update typing status
+//       socketRef.current.on("activity", (name) => {
+//         setActivity(`${name} is typing`);
+//       });
+
+//       // Clean up the event listeners when the component unmounts
+//       return () => {
+//         socketRef.current.off("message");
+//         socketRef.current.off("activity");
+//       };
+//     }
+//   }, []);
+
+//   const sendMessage = (e) => {
+//     e.preventDefault();
+
+//     if (data.msg) {
+//       // Emit the message to the server
+//       socketRef.current.emit("message", data.msg);
+
+//       // Update the state to display the sent message
+//       setMessagesObj((prevMessages) => ({
+//         messages: [...prevMessages.messages, { text: data.msg, sender: "Me" }],
+//       }));
+
+//       // Clear the input field
+//       setData({ ...data, msg: "" });
+//       setActivity("");
+//     }
+//   };
+
+//   useEffect(() => {
+//     let typingTimeout;
+
+//     const handleKeyPress = (e) => {
+//       // Check if the pressed key is "Enter"
+//       if (e.key === "Enter") {
+//         sendMessage(e);
+//       } else {
+//         socketRef.current.emit(
+//           "activity",
+//           socketRef.current.id.substring(0, 5)
+//         );
+
+//         // Clear the previous typing timeout
+//         clearTimeout(typingTimeout);
+
+//         // Set a new timeout to clear the activity after 1000 milliseconds (adjust as needed)
+//         typingTimeout = setTimeout(() => {
+//           setActivity("");
+//         }, 1000);
+//       }
+//     };
+
+//     socketRef.current.on("activity", (name) => {
+//       setActivity(`${name} is typing`);
+//     });
+
+//     // Add the event listener
+//     document.addEventListener("keypress", handleKeyPress);
+
+//     // Clean up the event listener when the component unmounts
+//     return () => {
+//       document.removeEventListener("keypress", handleKeyPress);
+
+//       // Clear the typing timeout when the component unmounts
+//       clearTimeout(typingTimeout);
+//     };
+//   }, []); // Empty dependency array
+
+//   console.log(messagesObj.messages);
+
+//   const [showCreateRoomForm, setShowCreateRoomForm] = useState(false);
+
+//   // Function to handle the "Create" button click
+//   const handleCreateButtonClick = () => {
+//     setShowCreateRoomForm(true);
+//   };
+
+//   // Function to handle the form submission
+//   const handleFormSubmit = (e) => {
+//     e.preventDefault();
+//     // Add your form submission logic here
+
+//     // Hide the form after submission
+//     setShowCreateRoomForm(false);
+//   };
+
+//   return (
+//     <div className="app-container">
+//       <Navbar show={false} />
+//       <SideNav />
+
+//       <h1 className="forum-header">Active Conversation</h1>
+
+//       <div className="chatrooms">
+//         <div className="chatroom">
+//           <h3>Chat topic</h3>
+//           <p className="description">
+//             {" "}
+//             lorem ispu lorem todo ien abi xl dnfdj jenr kzfnmZ
+//           </p>
+//           <button className="chatroom-btn">Join room</button>
+//         </div>
+//       </div>
+//       <div className="create-room">
+//         <h3 className="h3">create your chatroom</h3>
+//         <button className="chatroom-btn" onClick={handleCreateButtonClick}>
+//           Create
+//         </button>
+//       </div>
+//       {/* Conditionally render the form based on the state */}
+//       {showCreateRoomForm && (
+//         <form className="create-room-form" onSubmit={handleFormSubmit}>
+//           <h4>Create room</h4>
+//           <input
+//             type="text"
+//             placeholder="Enter room name"
+//             id="room-name-input"
+//           />
+//           <textarea
+//             cols={20}
+//             rows={4}
+//             placeholder="room description"
+//           ></textarea>
+//           <button className="room-button" type="submit">
+//             Create Room
+//           </button>
+//         </form>
+//       )}
+//       {/* <form onSubmit={sendMessage}>
+//         <input
+//           type="text"
+//           id="chat-input"
+//           value={data.msg}
+//           onChange={(e) => setData({ ...data, msg: e.target.value })}
+//         />
+//         <input type="submit" value="send" />
+//       </form>
+//       <ul id="msg-display">
+//         {messagesObj.messages.map((message, index) => (
+//           <li key={index}>{message.text}</li>
+//         ))}
+//       </ul> */}
+
+//       <p className="activity">{activity}</p>
+//     </div>
+//   );
+// }
+
+// export default Forum;
+
+// // Upon connection - only to user
+// socket.emit("message", "welcome to chat App"); // Fix typo in "welocme"
+// // Upon connection - only to everyone else
+// socket.broadcast.emit(
+//   "message",
+//   `User ${socket.id.substring(0, 5)} connected`
+// );
+
+// socket.on("message", (data) => {
+//   console.log(`Received message from ${socket.id.substring(0, 5)}:`, data);
+//   io.emit("message", `${socket.id.substring(0, 5)}: ${data}`);
+// });
+
+// // when user disconnects
+// socket.on("disconnect", () => {
+//   console.log(`User ${socket.id} disconnected`);
+//   socket.broadcast.emit(
+//     "message",
+//     `User ${socket.id.substring(0, 5)} disconnected`
+//   );
+// });
+
+// // listen for activity
+// socket.on("activity", (name) => {
+//   console.log(`${name} is typing`);
+//   socket.broadcast.emit("activity", name);
+// });
